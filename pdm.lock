@@ -5,7 +5,41 @@
 groups = ["default"]
 strategy = ["inherit_metadata"]
 lock_version = "4.5.0"
-content_hash = "sha256:d3007c65cf6f599df32770f1bb58581b12054c3fa0d167035d674644a49fb97b"
+content_hash = "sha256:d076becf18bf2c71f0e52e07f4a95ebf0b41aceb9b3b64c50ed62c0d510c432f"
 
 [[metadata.targets]]
 requires_python = ">=3.9"
+
+[[package]]
+name = "obd"
+version = "0.7.2"
+summary = "Serial module for handling live sensor data from a vehicle's OBD-II port"
+groups = ["default"]
+dependencies = [
+    "pint==0.20.*",
+    "pyserial==3.*",
+]
+files = [
+    {file = "obd-0.7.2.tar.gz", hash = "sha256:20d38c9ded3daad1e8affab3ff367a70788d4f29ac77ab7aacddc6a6d2a43d61"},
+]
+
+[[package]]
+name = "pint"
+version = "0.20.1"
+requires_python = ">=3.8"
+summary = "Physical quantities module"
+groups = ["default"]
+files = [
+    {file = "Pint-0.20.1-py3-none-any.whl", hash = "sha256:68afe65665542ee3ec99f69f043b1d39bfe7c6d61b786940157138fd08b838fb"},
+    {file = "Pint-0.20.1.tar.gz", hash = "sha256:387cf04078dc7dfe4a708033baad54ab61d82ab06c4ee3d4922b1e45d5626067"},
+]
+
+[[package]]
+name = "pyserial"
+version = "3.5"
+summary = "Python Serial Port Extension"
+groups = ["default"]
+files = [
+    {file = "pyserial-3.5-py2.py3-none-any.whl", hash = "sha256:c4451db6ba391ca6ca299fb3ec7bae67a5c55dde170964c7a14ceefec02f2cf0"},
+    {file = "pyserial-3.5.tar.gz", hash = "sha256:3c77e014170dfffbd816e6ffc205e9842efb10be9f58ec16d3e8675b4925cddb"},
+]
