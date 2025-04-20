@@ -5,10 +5,10 @@
 groups = ["default"]
 strategy = ["inherit_metadata"]
 lock_version = "4.5.0"
-content_hash = "sha256:1f6791a2ea4b9081be2d4763ce92734cd7739c84a205aa68c861fadbb453fce9"
+content_hash = "sha256:1a81d97f6a2c12695a2d721cf36cad901077b6d05733de32dc024d323f6cdf94"
 
 [[metadata.targets]]
-requires_python = ">=3.9"
+requires_python = ">=3.10"
 
 [[package]]
 name = "mypy"
