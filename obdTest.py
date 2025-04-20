@@ -1,3 +1,4 @@
+from collections.abc import Iterable
 import time
 import obd
 
@@ -8,7 +9,7 @@ cmd = obd.commands.SPEED
 
 #TODO add logging of infomation
 
-def obd_response(obd_command: any) -> list:
+def obd_response(obd_command: Iterable[object]) -> list:
     """Store the OBDResponse objects properties in a list.
 
     value:	The decoded value from the car
