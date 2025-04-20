@@ -4,19 +4,25 @@ import obd
 connection = obd.OBD("COM9")  # auto connects to USB or RF
 cmd = obd.commands.SPEED
 
-
+def obd_response(connection,cmd) -> list[str,float,bool,str,float]:
+    obd_response = connection.query(cmd)
+    obd_port_name = connection.port_name()
+    obd_response_output = []
+    
+    if not obd_response.is_null():
+        obd_response_output =  list(obd_port_name)
+        obd_response_output =  list(obd_response.value)
+        obd_response_output =  list(obd_response.command)
+        obd_response_output =  list(obd_response.message)
+        obd_response_output =  list(time.time())
+    
+    return obd_response_output
+        
+                    
 while True:
-    respose = connection.query(cmd)  # send command to obd
-    port_names  = connection.port_name()
-    print("!!!!!- sending the request to OBD2- %s !!!!! ",port_names)
-    print("!!!!!- sending the request to OBD2- %f!!!!!! ",respose.value,time.time())
-    print("!!!!!- sending the request to OBD2- %s !!!!!!",respose.is_null())
-    print("!!!!!- sending the request to OBD2- %s !!!!!!",respose.messages)
-    print("!!!!!- sending the request to OBD2- %s !!!!!!",respose.command)
 
-
-    respose = connection.query(cmd)
-    time.sleep(2)
-    print(str(respose.value) + "\n")  # returns   unit bearing
-    port = connection    
-
+    vechile_speed = obd_response(connection=connection, cmd= cmd)
+    print("vechile speed",vechile_speed)
+    print("vechile speed",vechile_speed[1].rstrip)
+    
+    
