@@ -1,0 +1,40 @@
+---
+config:
+  theme: neutral
+---
+C4Context
+      title System Context diagram for a personal car telemetry (passat_projects) 
+      Enterprise_Boundary(b0, "System as whole") {
+          Person(dev1, "Developer", "interacts with gitlab/github to make changes tothe system")
+          System_Boundary("b3", "Gitlab, OpenAI and Proxmox-rack")
+          {
+            System("proxmoxSystem","Proxmox-Server-Rack","on-premise cloud","self")
+            System("gitlabSystem","Gitlab CI/CD","Automates the Infrastructure changes in the proxmox sever and rasberry pi ",)
+            System("openaiSystem","Open/AI","The core leader of Customer(driver) experince",)
+          }
+          Enterprise_Boundary(b1, "Car System")
+          {
+            Person(driver1, "DRIVER", "Interacts with the infotainment system in the car")
+            System(carSystem, "CAR", "Generates , Collects, Process, Display, Driver data ")
+          }
+      }
+      Rel(driver1,carSystem, "recieves Open AI report")  
+      Rel(dev1, gitlabSystem, "CI/CD changes")
+      Rel(dev1, proxmoxSystem, "manual changes")
+      Rel(gitlabSystem, carSystem, "Gitlab CI/CD")
+      Rel(gitlabSystem,proxmoxSystem, "Infrastructure Automation")
+      BiRel(openaiSystem, proxmoxSystem, "sends driving report to proxmox server ")
+
+
+
+      UpdateElementStyle(customerA, $fontColor="red", $bgColor="grey", $borderColor="red")
+      UpdateRelStyle(driver1,carSystem, $textColor="blue", $lineColor="blue", $offsetX="5")
+      UpdateRelStyle(gitlabSystem, carSystem, $textColor="blue", $lineColor="blue", $offsetY="-10")
+      UpdateRelStyle(dev1, gitlabSystem,  $textColor="blue", $lineColor="blue", $offsetY="-40", $offsetX="-50")
+      UpdateRelStyle(gitlabSystem,proxmoxSystem, $textColor="red", $lineColor="red", $offsetX="-50", $offsetY="1")
+      UpdateRelStyle(openaiSystem, proxmoxSystem, $textColor="red", $lineColor="red", $offsetX="-50", $offsetY="80")
+      UpdateRelStyle(dev1, proxmoxSystem, $textColor="orange", $lineColor="red", $offsetX="-100", $offsetY="80")
+
+
+
+
