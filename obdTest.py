@@ -27,7 +27,7 @@ def obd_response(obd_command: Iterable[object]) -> list:
         obd_response_output.append(obd_query_response.value)
         obd_response_output.append(obd_query_response.command)
         obd_response_output.append(obd_query_response.messages)
-        obd_response_output.append(str(time.time()))
+        obd_response_output.append(str(obd_query_response.time))
 
     else:
         print("OBD has no response")
