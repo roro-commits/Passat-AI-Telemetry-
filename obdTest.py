@@ -1,6 +1,8 @@
 import time
 import obd
 
+#TODO add auto-connect feature and reconnect if signal drops
+
 connection = obd.OBD("COM9")  # auto connects to USB or RF
 cmd = obd.commands.SPEED
 
