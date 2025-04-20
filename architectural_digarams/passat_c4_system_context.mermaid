@@ -24,8 +24,7 @@ C4Context
       Rel(gitlabSystem, carSystem, "Gitlab CI/CD")
       Rel(gitlabSystem,proxmoxSystem, "Infrastructure Automation")
       BiRel(openaiSystem, proxmoxSystem, "sends driving report to proxmox server ")
-
-
+      BiRel(proxmoxSystem,carSystem, "sends AI report, recieves driver raw data.")  
 
       UpdateElementStyle(customerA, $fontColor="red", $bgColor="grey", $borderColor="red")
       UpdateRelStyle(driver1,carSystem, $textColor="blue", $lineColor="blue", $offsetX="5")
@@ -34,7 +33,4 @@ C4Context
       UpdateRelStyle(gitlabSystem,proxmoxSystem, $textColor="red", $lineColor="red", $offsetX="-50", $offsetY="1")
       UpdateRelStyle(openaiSystem, proxmoxSystem, $textColor="red", $lineColor="red", $offsetX="-50", $offsetY="80")
       UpdateRelStyle(dev1, proxmoxSystem, $textColor="orange", $lineColor="red", $offsetX="-100", $offsetY="80")
-
-
-
-
+      UpdateRelStyle(proxmoxSystem,carSystem, roxmoxSystem,carSystem, $textColor="orange", $lineColor="red", $offsetX="-100", $offsetY="80")
